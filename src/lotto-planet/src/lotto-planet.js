@@ -1,8 +1,8 @@
-import Console from "../../utils/missions.js";
+import { InputView } from "./view/index.js";
 
 class LottoPlanet {
   async run() {
-    const result = await Console.readLine("질문을 넣어주세용");
+    const amount = await InputView.askAmount();
   }
 }
 
