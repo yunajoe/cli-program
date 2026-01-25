@@ -1,11 +1,9 @@
-import Validator from "./validator/index.js";
-import { InputView } from "./view/index.js";
+import { INPUT_KEY } from "../constant.js";
+import InputController from "./controller/input-controller.js";
 
 class LottoPlanet {
   async run() {
-    const amount = await InputView.askAmount();
-    console.log("입력한 금액 ===>", amount);
-    Validator.validateAmount(amount);
+    await InputController.readInput(INPUT_KEY.AMOUNT);
   }
 }
 

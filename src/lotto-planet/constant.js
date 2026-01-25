@@ -1,3 +1,7 @@
+export const INPUT_KEY = Object.freeze({
+  AMOUNT: "amount",
+});
+
 export const LOTTO_RULES = Object.freeze({
   UNIT: 500,
   MAX_AMOUNT: 10000,
