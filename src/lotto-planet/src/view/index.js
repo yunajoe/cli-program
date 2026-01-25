@@ -9,6 +9,7 @@ const InputView = {
 };
 const OutputView = {
   printErrorMessage(message) {
+    console.log("프린트 에러 메시지입니당 ===>", message);
     Console.print(`[ERROR] ${message}`);
   },
 };
