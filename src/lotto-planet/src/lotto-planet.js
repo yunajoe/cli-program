@@ -3,7 +3,10 @@ import InputController from "./controller/input-controller.js";
 
 class LottoPlanet {
   async run() {
-    await InputController.readInput(INPUT_KEY.AMOUNT);
+    const amount = await InputController.readInput(INPUT_KEY.AMOUNT);
+    console.log("amount ==>", amount);
+    const lottoNumber = await InputController.readInput(INPUT_KEY.LOTTO_NUMBER);
+    console.log("로또 넘버 ===>", lottoNumber);
   }
 }
 
