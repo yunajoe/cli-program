@@ -9,6 +9,7 @@ import { OutputView } from "../view/index.js";
 const validators = {
   amount: (amount) => Validator.validateAmount(amount),
   lottoNumber: (lottoNumber) => Validator.validateLottoNumber(lottoNumber),
+  bonusNumber: (bonusNumber) => Validator.validateBonusNumber(bonusNumber),
 };
 
 class Validator {
@@ -19,11 +20,6 @@ class Validator {
     return validate;
   }
   static validateAmount(purchasedAmount) {
-    if (Number.isNaN(purchasedAmount)) {
-      throw new Error(
-        OutputView.printErrorMessage(AMOUNT_ERROR_MESSAGE.INVALID_TYPE),
-      );
-    }
     if (purchasedAmount < LOTTO_RULES.UNIT) {
       throw new Error(
         OutputView.printErrorMessage(AMOUNT_ERROR_MESSAGE.MIN_AMOUNT),
@@ -65,6 +61,16 @@ class Validator {
         );
       }
     });
+  }
+
+  static validateBonusNumber(bonusNumber) {
+    // 1 ~ 30
+    // 로또 번호와 중복되지 않게
+    if (bonusNumber < 1 || bonusNumber > 30) {
+      throw new Error(
+        OutputView.printErrorMessage(LOTTO_ERROR_MESSAGE.INVALID_RANGE),
+      );
+    }
   }
 }
 

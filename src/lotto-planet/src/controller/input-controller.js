@@ -7,6 +7,7 @@ import { InputView } from "../view/index.js";
 const inputs = {
   amount: async () => await InputView.askAmount(),
   lottoNumber: async () => await InputView.askLottoNumber(),
+  bonusNumber: async () => await InputView.askBonusNumber(),
 };
 
 class InputController {

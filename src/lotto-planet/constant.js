@@ -1,6 +1,7 @@
 export const INPUT_KEY = Object.freeze({
   AMOUNT: "amount",
   LOTTO_NUMBER: "lottoNumber",
+  BONUS_NUMBER: "bonusNumber",
 });
 
 export const LOTTO_RULES = Object.freeze({
