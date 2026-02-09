@@ -8,6 +8,7 @@ class LottoPlanet {
     const lottoNumber = await InputController.readInput(INPUT_KEY.LOTTO_NUMBER);
     const bonusNumber = await InputController.readInput(INPUT_KEY.BONUS_NUMBER);
     const lottoGenerator = new LottoGenerator(amount, lottoNumber, bonusNumber);
+    lottoGenerator.run();
   }
 }
 
