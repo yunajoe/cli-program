@@ -9,7 +9,8 @@ import { OutputView } from "../view/index.js";
 const validators = {
   amount: (amount) => Validator.validateAmount(amount),
   lottoNumber: (lottoNumber) => Validator.validateLottoNumber(lottoNumber),
-  bonusNumber: (bonusNumber) => Validator.validateBonusNumber(bonusNumber),
+  bonusNumber: (bonusNumber, ...rest) =>
+    Validator.validateBonusNumber(bonusNumber, ...rest),
 };
 
 class Validator {
@@ -37,14 +38,12 @@ class Validator {
     }
   }
   static validateLottoNumber(lottoNumber) {
-    // 다섯개
     if (lottoNumber.length !== LOTTO_RULES.LOTTO_UNIT) {
       throw new Error(
         OutputView.printErrorMessage(LOTTO_ERROR_MESSAGE.INVALID_LENGTH),
       );
     }
 
-    // 중복되지 않게
     if (new Set(lottoNumber).size !== lottoNumber.length) {
       throw new Error(
         OutputView.printErrorMessage(LOTTO_ERROR_MESSAGE.DUPLICATED),
@@ -63,12 +62,16 @@ class Validator {
     });
   }
 
-  static validateBonusNumber(bonusNumber) {
-    // 1 ~ 30
-    // 로또 번호와 중복되지 않게
+  static validateBonusNumber(bonusNumber, ...rest) {
+    const lottoNumbers = rest[0];
     if (bonusNumber < 1 || bonusNumber > 30) {
       throw new Error(
         OutputView.printErrorMessage(LOTTO_ERROR_MESSAGE.INVALID_RANGE),
+      );
+    }
+    if (lottoNumbers.includes(bonusNumber)) {
+      throw new Error(
+        OutputView.printErrorMessage(LOTTO_ERROR_MESSAGE.INVALID_BONUS_NUMBER),
       );
     }
   }

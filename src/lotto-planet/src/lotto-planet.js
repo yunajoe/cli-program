@@ -6,7 +6,10 @@ class LottoPlanet {
   async run() {
     const amount = await InputController.readInput(INPUT_KEY.AMOUNT);
     const lottoNumber = await InputController.readInput(INPUT_KEY.LOTTO_NUMBER);
-    const bonusNumber = await InputController.readInput(INPUT_KEY.BONUS_NUMBER);
+    const bonusNumber = await InputController.readInput(
+      INPUT_KEY.BONUS_NUMBER,
+      lottoNumber,
+    );
     const lottoGenerator = new LottoGenerator(amount, lottoNumber, bonusNumber);
     lottoGenerator.run();
   }

@@ -24,4 +24,5 @@ export const LOTTO_ERROR_MESSAGE = Object.freeze({
   INVALID_LENGTH: "로또번호는 5개여야 합니다.",
   DUPLICATED: "로또번호는 중복되지 않아야 합니다.",
   INVALID_RANGE: "로또번호는 1~30까지 여야 합니다.",
+  INVALID_BONUS_NUMBER: "보너스 번호는 로또 번호와 중복되지 않아야 합니다.",
 });

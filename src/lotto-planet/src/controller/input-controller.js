@@ -16,7 +16,7 @@ class InputController {
       const inputFunc = inputs[key];
       const value = await inputFunc();
       const validateFunc = Validator.validate(key);
-      validateFunc(value);
+      validateFunc(value, ...rest);
       return value;
     } catch (error) {
       Console.print(error.message);
