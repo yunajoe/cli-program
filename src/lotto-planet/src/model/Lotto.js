@@ -4,6 +4,7 @@ import Random from "#src/utils/random.js";
 class Lotto {
   constructor() {
     this.random = new Random();
+    this.randomNumbers = [];
   }
 
   // 중복된 숫자가 있는지 체크
@@ -20,16 +21,18 @@ class Lotto {
   #generateLotto(min, max) {
     try {
       const arr = this.random.generateRandomNumbers(min, max);
-      console.log("arr", arr);
       this.#validateDuplicatedNumbers(arr);
       this.#sortAscending(arr);
+      return arr;
     } catch (error) {
-      this.#generateLotto(min, max);
+      return this.#generateLotto(min, max);
     }
   }
+
   generateLottoNTrials(n, min, max) {
     for (let i = 0; i < n; i++) {
-      this.#generateLotto(min, max);
+      const arr = this.#generateLotto(min, max);
+      this.randomNumbers.push(arr);
     }
   }
 }

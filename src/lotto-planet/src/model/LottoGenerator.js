@@ -18,7 +18,8 @@ class LottoGenerator {
     const Ntrials = Math.floor(
       this.#purchasedAmount / LottoGenerator.#LOTTO_PRICE,
     );
-    console.log("lotto", this.lotto.generateLottoNTrials(Ntrials, 1, 10));
+    this.lotto.generateLottoNTrials(Ntrials, 1, 10);
+    console.log("numberAry", this.lotto.randomNumbers);
   }
 
   // 랜덤번호에 따라 로또 번호를 출력해주는 메서드
