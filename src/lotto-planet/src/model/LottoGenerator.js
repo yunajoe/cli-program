@@ -14,16 +14,17 @@ class LottoGenerator {
   }
 
   // amount 에 맞게 로또 복권 장수를 발행해주는 메서드
-  printIssuedLottoTickets(purchasedAmount) {
-    const purchasedTickets = purchasedAmount / LottoGenerator.#LOTTO_PRICE;
-    // const result = this.lotto.generateLotto(1, 10);
-    // console.log("result", result);
+  printIssuedLottoTickets() {
+    const Ntrials = Math.floor(
+      this.#purchasedAmount / LottoGenerator.#LOTTO_PRICE,
+    );
+    console.log("lotto", this.lotto.generateLottoNTrials(Ntrials, 1, 10));
   }
 
   // 랜덤번호에 따라 로또 번호를 출력해주는 메서드
 
   run() {
-    this.printIssuedLottoTickets(this.#purchasedAmount);
+    this.printIssuedLottoTickets();
   }
 }
 

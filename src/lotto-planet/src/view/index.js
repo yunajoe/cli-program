@@ -1,4 +1,4 @@
-import Console from "../../../utils/console.js";
+import Console from "#src/utils/console.js";
 
 const InputView = {
   async askAmount() {
@@ -40,6 +40,7 @@ const OutputView = {
   printErrorMessage(message) {
     Console.print(`[ERROR] ${message}`);
   },
+  printLottoTickets(ticketsNumber) {},
 };
 
 export { InputView, OutputView };

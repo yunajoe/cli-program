@@ -7,18 +7,30 @@ class Lotto {
   }
 
   // 중복된 숫자가 있는지 체크
-  static #validateDuplicatedNumbers(numbers) {
-    if (new Set(number).size !== numbers.length) {
+  #validateDuplicatedNumbers(numbers) {
+    if (new Set(numbers).size !== numbers.length) {
       throw new Error("[ERROR] 중복된 숫자는 허용되지 않습니다.");
     }
   }
-  // 오름차순 정렬ㅌㅈ
-  static #sortAscending(numbers) {
-    return numbers.sorted((a, b) => a - b);
+  // 오름차순 정렬
+  #sortAscending(numbers) {
+    return numbers.sort((a, b) => a - b);
   }
   // 로또 출력
-  static generateLotto(min, max) {
-    return this.random.generateNumbers(min, max);
+  #generateLotto(min, max) {
+    try {
+      const arr = this.random.generateRandomNumbers(min, max);
+      console.log("arr", arr);
+      this.#validateDuplicatedNumbers(arr);
+      this.#sortAscending(arr);
+    } catch (error) {
+      this.#generateLotto(min, max);
+    }
+  }
+  generateLottoNTrials(n, min, max) {
+    for (let i = 0; i < n; i++) {
+      this.#generateLotto(min, max);
+    }
   }
 }
 

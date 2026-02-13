@@ -1,4 +1,5 @@
 class Random {
+  constructor() {}
   // 숫자 확인
   static #isNumber(value) {
     return typeof value === "number";
@@ -42,7 +43,7 @@ class Random {
   /**
    * 랜덤으로 5개 나오기
    */
-  static generateRandomNumbers(min, max) {
+  generateRandomNumbers(min, max) {
     const result = [];
     for (let i = 0; i < 5; i++) {
       const num = Random.#pickRandomNumbers(min, max);
